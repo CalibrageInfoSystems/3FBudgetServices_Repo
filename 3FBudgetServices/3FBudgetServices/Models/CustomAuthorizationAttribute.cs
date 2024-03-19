@@ -13,6 +13,7 @@ using System.Web.Http.Filters;
 
 namespace _3FBudgetServices.Models
 {
+    
     public class CustomAuthorizationAttribute : AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)

@@ -19,7 +19,7 @@ namespace _3FBudgetServices.Models
             var accessTokenDescriptor = new SecurityTokenDescriptor
             {
 
-                Expires = DateTime.Now.AddMinutes(1),
+                Expires = DateTime.Now.AddMinutes(5),
 
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -36,7 +36,7 @@ namespace _3FBudgetServices.Models
             byte[] keyBytes = Encoding.UTF8.GetBytes(Token);
             var refreshTokenDescriptor = new SecurityTokenDescriptor
             {
-                Expires = DateTime.Now.AddMinutes(1),
+                Expires = DateTime.Now.AddMinutes(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
             };
             var refreshToken = tokenHandler.CreateToken(refreshTokenDescriptor);
