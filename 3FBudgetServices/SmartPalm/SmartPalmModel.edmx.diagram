@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7180e6060b37444da60ee5aa58f0784f" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="FOilPalmModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Create__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Create__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Create__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Manage__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Manage__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Manage__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__5BE2A6F2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

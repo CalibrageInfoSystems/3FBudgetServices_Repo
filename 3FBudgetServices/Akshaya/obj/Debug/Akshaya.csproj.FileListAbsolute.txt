@@ -1,0 +1,7 @@
+D:\Works\3FServices\3FBudgetServices\Akshaya\bin\Debug\Akshaya.dll.config
+D:\Works\3FServices\3FBudgetServices\Akshaya\bin\Debug\Akshaya.dll
+D:\Works\3FServices\3FBudgetServices\Akshaya\bin\Debug\Akshaya.pdb
+D:\Works\3FServices\3FBudgetServices\Akshaya\obj\Debug\Akshaya.csproj.AssemblyReference.cache
+D:\Works\3FServices\3FBudgetServices\Akshaya\obj\Debug\Akshaya.csproj.CoreCompileInputs.cache
+D:\Works\3FServices\3FBudgetServices\Akshaya\obj\Debug\Akshaya.dll
+D:\Works\3FServices\3FBudgetServices\Akshaya\obj\Debug\Akshaya.pdb

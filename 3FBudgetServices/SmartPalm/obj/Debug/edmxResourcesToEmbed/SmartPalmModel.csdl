@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FOilPalmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ManagerId" Type="Int32" />
+    <Property Name="TabletId" Type="Int32" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedByUserId" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsApplicationAccess" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__UserInfo__Create__2B3F6F97">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Create__4316F928">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Create__5812160E">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__2C3393D0">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__440B1D61">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__59063A47">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__2F10007B">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__46E78A0C">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__5BE2A6F2">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SmartPalmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <AssociationSet Name="FK__UserInfo__Create__2B3F6F97" Association="Self.FK__UserInfo__Create__2B3F6F97">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Create__4316F928" Association="Self.FK__UserInfo__Create__4316F928">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Create__5812160E" Association="Self.FK__UserInfo__Create__5812160E">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__2C3393D0" Association="Self.FK__UserInfo__Manage__2C3393D0">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__440B1D61" Association="Self.FK__UserInfo__Manage__440B1D61">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__59063A47" Association="Self.FK__UserInfo__Manage__59063A47">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__2F10007B" Association="Self.FK__UserInfo__Update__2F10007B">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__46E78A0C" Association="Self.FK__UserInfo__Update__46E78A0C">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__5BE2A6F2" Association="Self.FK__UserInfo__Update__5BE2A6F2">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="UserInfo1" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <FunctionImport Name="GetUserDetails" ReturnType="Collection(FOilPalmModel.GetUserDetails_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetUserDetails_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="820" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

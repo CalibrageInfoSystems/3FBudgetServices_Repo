@@ -1,0 +1,12 @@
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\SmartPalm.dll.config
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\SmartPalm.dll
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\SmartPalm.pdb
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\EntityFramework.dll
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\EntityFramework.SqlServer.dll
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\EntityFramework.xml
+D:\Works\3FServices\3FBudgetServices\SmartPalm\bin\Debug\EntityFramework.SqlServer.xml
+D:\Works\3FServices\3FBudgetServices\SmartPalm\obj\Debug\SmartPalm.csproj.AssemblyReference.cache
+D:\Works\3FServices\3FBudgetServices\SmartPalm\obj\Debug\SmartPalm.csproj.CoreCompileInputs.cache
+D:\Works\3FServices\3FBudgetServices\SmartPalm\obj\Debug\SmartPalm.csproj.CopyComplete
+D:\Works\3FServices\3FBudgetServices\SmartPalm\obj\Debug\SmartPalm.dll
+D:\Works\3FServices\3FBudgetServices\SmartPalm\obj\Debug\SmartPalm.pdb

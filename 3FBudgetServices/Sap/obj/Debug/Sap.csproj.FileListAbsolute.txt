@@ -1,0 +1,7 @@
+D:\Works\3FServices\3FBudgetServices\Sap\bin\Debug\Sap.dll.config
+D:\Works\3FServices\3FBudgetServices\Sap\bin\Debug\Sap.dll
+D:\Works\3FServices\3FBudgetServices\Sap\bin\Debug\Sap.pdb
+D:\Works\3FServices\3FBudgetServices\Sap\obj\Debug\Sap.csproj.AssemblyReference.cache
+D:\Works\3FServices\3FBudgetServices\Sap\obj\Debug\Sap.csproj.CoreCompileInputs.cache
+D:\Works\3FServices\3FBudgetServices\Sap\obj\Debug\Sap.dll
+D:\Works\3FServices\3FBudgetServices\Sap\obj\Debug\Sap.pdb

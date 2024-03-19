@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FOilPalmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="255" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="ManagerId" Type="int" />
+    <Property Name="TabletId" Type="int" />
+    <Property Name="UserCode" Type="varchar" MaxLength="50" />
+    <Property Name="EmployeeCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedByUserId" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsApplicationAccess" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__UserInfo__Create__2B3F6F97">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Create__4316F928">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Create__5812160E">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="CreatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__2C3393D0">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__440B1D61">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Manage__59063A47">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="ManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__2F10007B">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__46E78A0C">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserInfo__Update__5BE2A6F2">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
+    <End Role="UserInfo1" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo1">
+        <PropertyRef Name="UpdatedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="FOilPalmModelStoreContainer">
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__UserInfo__Create__2B3F6F97" Association="Self.FK__UserInfo__Create__2B3F6F97">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Create__4316F928" Association="Self.FK__UserInfo__Create__4316F928">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Create__5812160E" Association="Self.FK__UserInfo__Create__5812160E">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__2C3393D0" Association="Self.FK__UserInfo__Manage__2C3393D0">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__440B1D61" Association="Self.FK__UserInfo__Manage__440B1D61">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Manage__59063A47" Association="Self.FK__UserInfo__Manage__59063A47">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__2F10007B" Association="Self.FK__UserInfo__Update__2F10007B">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__46E78A0C" Association="Self.FK__UserInfo__Update__46E78A0C">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserInfo__Update__5BE2A6F2" Association="Self.FK__UserInfo__Update__5BE2A6F2">
+      <End Role="UserInfo" EntitySet="UserInfo" />
+      <End Role="UserInfo1" EntitySet="UserInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

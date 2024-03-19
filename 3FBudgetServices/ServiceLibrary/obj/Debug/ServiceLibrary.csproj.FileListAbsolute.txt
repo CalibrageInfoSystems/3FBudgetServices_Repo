@@ -1,0 +1,2 @@
+D:\Works\3FServices\3FBudgetServices\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.AssemblyReference.cache
+D:\Works\3FServices\3FBudgetServices\ServiceLibrary\obj\Debug\ServiceLibrary.csproj.CoreCompileInputs.cache
