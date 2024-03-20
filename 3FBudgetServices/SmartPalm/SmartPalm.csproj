@@ -53,7 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgetSheet_3F.cs">
+      <DependentUpon>SmartPalmModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetUserDetails_Result.cs">
+      <DependentUpon>SmartPalmModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixInfo.cs">
       <DependentUpon>SmartPalmModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

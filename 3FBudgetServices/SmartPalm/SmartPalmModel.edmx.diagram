@@ -15,6 +15,8 @@
         <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__46E78A0C" ManuallyRouted="false" />
         <AssociationConnector Association="FOilPalmModel.FK__UserInfo__Update__5BE2A6F2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FOilPalmModel.BudgetSheet_3F" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FOilPalmModel.MatrixInfo" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
