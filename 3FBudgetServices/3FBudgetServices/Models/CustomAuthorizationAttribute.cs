@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartPalm;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
@@ -22,7 +23,20 @@ namespace _3FBudgetServices.Models
             //string apiKey = GetApiKeyFromHeaders(actionContext);
             // Perform your custom authorization logic using the token and other parameters
             //bool isAuthorized = CheckAuthorizationLogic(token, apiKey);
+            bool checktoken = ischecktoken(token);
+            
             bool expiredtoken = IsTokenExpired(token);
+            if(checktoken == false)
+            {
+                string errorMessage = "Token Is inactive";
+
+                var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
+                {
+                    Content = new StringContent($"{{ \"error\": \"{errorMessage}\" }}", Encoding.UTF8, "application/json")
+                };
+
+                actionContext.Response = response;
+            }
             if (expiredtoken == false)
             {
                 //actionContext.Response = "";
@@ -70,7 +84,25 @@ namespace _3FBudgetServices.Models
 
 
         //private readonly string secretKey;
-
+        private bool ischecktoken(string token)
+        {
+            using (var context = new SmartPalmEntities())
+            {
+                var accessToken = context.Accesstokens.FirstOrDefault(a => a.Token == token);
+                bool checktoken1;
+                if (accessToken.IsActive == false)
+                {
+                    return checktoken1 = false;
+                }
+                else
+                {
+                    return checktoken1 = true;
+                }
+                bool checktoken = checktoken1;
+                return checktoken;
+            }
+            
+        }
 
         private bool CheckAuthorizationLogic(string token)
         {
@@ -147,6 +179,13 @@ namespace _3FBudgetServices.Models
                 if (securityToken == null)
                     return true; // Token is invalid or malformed
 
+                foreach (var claim in securityToken.Claims)
+                {
+                    if (claim.Type == "token_type" && claim.Value == "refresh")
+                    {
+                        return true;
+                    }
+                }
                 // Get the expiration time of the token
                 var expirationTime = securityToken.ValidTo;
 

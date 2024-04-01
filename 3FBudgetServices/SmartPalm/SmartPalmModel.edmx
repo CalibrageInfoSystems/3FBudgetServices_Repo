@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FOilPalmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accesstoken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="BudgetSheet_3F">
           <Key>
             <PropertyRef Name="Id" />
@@ -165,6 +173,7 @@
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="FOilPalmModelStoreContainer">
+          <EntitySet Name="Accesstoken" EntityType="Self.Accesstoken" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BudgetSheet_3F" EntityType="Self.BudgetSheet_3F" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MatrixInfo" EntityType="Self.MatrixInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
@@ -386,6 +395,7 @@
           </FunctionImport>
           <EntitySet Name="BudgetSheet_3F" EntityType="FOilPalmModel.BudgetSheet_3F" />
           <EntitySet Name="MatrixInfoes" EntityType="FOilPalmModel.MatrixInfo" />
+          <EntitySet Name="Accesstokens" EntityType="FOilPalmModel.Accesstoken" />
         </EntityContainer>
         <ComplexType Name="GetUserDetails_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -417,6 +427,14 @@
           <Property Name="UOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Accesstoken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -484,6 +502,15 @@
                 <ScalarProperty Name="Source" ColumnName="Source" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MatrixCode" ColumnName="MatrixCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accesstokens">
+            <EntityTypeMapping TypeName="FOilPalmModel.Accesstoken">
+              <MappingFragment StoreEntitySet="Accesstoken">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

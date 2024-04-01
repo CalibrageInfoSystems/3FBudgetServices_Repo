@@ -30,6 +30,7 @@ namespace SmartPalm
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<BudgetSheet_3F> BudgetSheet_3F { get; set; }
         public virtual DbSet<MatrixInfo> MatrixInfoes { get; set; }
+        public virtual DbSet<Accesstoken> Accesstokens { get; set; }
     
         public virtual ObjectResult<GetUserDetails_Result> GetUserDetails(Nullable<int> id)
         {
