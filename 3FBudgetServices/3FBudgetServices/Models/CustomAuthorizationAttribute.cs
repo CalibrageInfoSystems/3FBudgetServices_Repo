@@ -19,43 +19,28 @@ namespace _3FBudgetServices.Models
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
+
             string token = GetTokenFromHeaders(actionContext);
-            //string apiKey = GetApiKeyFromHeaders(actionContext);
-            // Perform your custom authorization logic using the token and other parameters
-            //bool isAuthorized = CheckAuthorizationLogic(token, apiKey);
-            bool checktoken = ischecktoken(token);
-            
-            bool expiredtoken = IsTokenExpired(token);
-            if(checktoken == false)
+            if (string.IsNullOrEmpty(token))
             {
-                string errorMessage = "Token Is inactive";
-
+                string errorMessage = "please pass Token in Header";
                 var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
                 {
                     Content = new StringContent($"{{ \"error\": \"{errorMessage}\" }}", Encoding.UTF8, "application/json")
                 };
-
-                actionContext.Response = response;
-            }
-            if (expiredtoken == false)
-            {
-                //actionContext.Response = "";
-                string errorMessage = "Token Is Expired";
-
-                var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
-                {
-                    Content = new StringContent($"{{ \"error\": \"{errorMessage}\" }}", Encoding.UTF8, "application/json")
-                };
-
                 actionContext.Response = response;
             }
             else
             {
-                bool isAuthorized = CheckAuthorizationLogic(token);
+                //string apiKey = GetApiKeyFromHeaders(actionContext);
+                // Perform your custom authorization logic using the token and other parameters
+                //bool isAuthorized = CheckAuthorizationLogic(token, apiKey);
+                bool checktoken = ischecktoken(token);
 
-                if (!isAuthorized)
+                bool expiredtoken = IsTokenExpired(token);
+                if (checktoken == false)
                 {
-                    string errorMessage = "invalid token";
+                    string errorMessage = "Token Is inactive";
 
                     var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
                     {
@@ -64,8 +49,36 @@ namespace _3FBudgetServices.Models
 
                     actionContext.Response = response;
                 }
+                if (expiredtoken == false)
+                {
+                    //actionContext.Response = "";
+                    string errorMessage = "Token Is Expired";
+
+                    var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
+                    {
+                        Content = new StringContent($"{{ \"error\": \"{errorMessage}\" }}", Encoding.UTF8, "application/json")
+                    };
+
+                    actionContext.Response = response;
+                }
+                else
+                {
+                    bool isAuthorized = CheckAuthorizationLogic(token);
+
+                    if (!isAuthorized)
+                    {
+                        string errorMessage = "invalid token";
+
+                        var response = new HttpResponseMessage(HttpStatusCode.Unauthorized)
+                        {
+                            Content = new StringContent($"{{ \"error\": \"{errorMessage}\" }}", Encoding.UTF8, "application/json")
+                        };
+
+                        actionContext.Response = response;
+                    }
+                }
             }
-        }
+            }
         private string GetTokenFromHeaders(HttpActionContext actionContext)
         {
             IEnumerable<string> headerValues;
@@ -86,63 +99,80 @@ namespace _3FBudgetServices.Models
         //private readonly string secretKey;
         private bool ischecktoken(string token)
         {
-            using (var context = new SmartPalmEntities())
+            if(token!=null)
             {
-                var accessToken = context.Accesstokens.FirstOrDefault(a => a.Token == token);
-                bool checktoken1;
-                if (accessToken.IsActive == false)
+                using (var context = new SmartPalmEntities())
                 {
-                    return checktoken1 = false;
+                    var accessToken = context.Accesstokens.FirstOrDefault(a => a.Token == token);
+                    bool checktoken1;
+                    if (accessToken.IsActive == false)
+                    {
+                        return checktoken1 = false;
+                    }
+                    else
+                    {
+                        return checktoken1 = true;
+                    }
+                    bool checktoken = checktoken1;
+                    return checktoken;
                 }
-                else
-                {
-                    return checktoken1 = true;
-                }
-                bool checktoken = checktoken1;
-                return checktoken;
             }
+            else
+            {
+                return false;
+            }
+        
             
         }
 
         private bool CheckAuthorizationLogic(string token)
         {
 
-            string validate = ConfigurationManager.AppSettings["randomkey"];
-            string jwt = token;
-
-
-            string[] jwtParts = jwt.Split('.');
-            string payloadBase64 = jwtParts.Length > 1 ? jwtParts[1] : string.Empty;
-
-
-
-
-            byte[] secretKeyBytes = Encoding.UTF8.GetBytes(validate);
-            byte[] signatureBytes = Base64UrlDecode(jwtParts[2]);
-
-
-            string headerPayload = $"{jwtParts[0]}.{payloadBase64}";
-            byte[] headerPayloadBytes = Encoding.UTF8.GetBytes(headerPayload);
-
-
-            var hmac = new HMACSHA256(secretKeyBytes);
-
-            byte[] computedHash = hmac.ComputeHash(headerPayloadBytes);
-            bool isValidToken1;
-
-            if (AreEqual(computedHash, signatureBytes))
+            if (token != null)
             {
-                return isValidToken1 = true;
+                string validate = ConfigurationManager.AppSettings["randomkey"];
+                string jwt = token;
+
+
+                string[] jwtParts = jwt.Split('.');
+                string payloadBase64 = jwtParts.Length > 1 ? jwtParts[1] : string.Empty;
+
+
+
+
+                byte[] secretKeyBytes = Encoding.UTF8.GetBytes(validate);
+                byte[] signatureBytes = Base64UrlDecode(jwtParts[2]);
+
+
+                string headerPayload = $"{jwtParts[0]}.{payloadBase64}";
+                byte[] headerPayloadBytes = Encoding.UTF8.GetBytes(headerPayload);
+
+
+                var hmac = new HMACSHA256(secretKeyBytes);
+
+                byte[] computedHash = hmac.ComputeHash(headerPayloadBytes);
+                bool isValidToken1;
+
+                if (AreEqual(computedHash, signatureBytes))
+                {
+                    return isValidToken1 = true;
+                }
+                else
+                {
+                    return isValidToken1 = false;
+                }
+
+
+                bool isAuthorized = isValidToken1;
+
+                return isAuthorized;
             }
             else
             {
-                return isValidToken1 = false;
+                bool isAuth = false;
+                return isAuth;
             }
 
-
-            bool isAuthorized = isValidToken1;
-
-            return isAuthorized;
 
 
         }
